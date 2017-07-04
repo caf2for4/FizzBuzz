@@ -20,6 +20,13 @@
     </form>
     <p id="span_result">result2</p>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../static/js/main.js"></script>
+    <script>
+        $(function() {
+            var script = document.createElement('script'); 
+            script.src = '../static/js/main.js?' + (new Date).getTime();
+            document.body.appendChild(script);
+        });
+    </script>
+    <!--<script type="text/javascript" src="../static/js/main.js"></script>-->
     </body>
 </html>
