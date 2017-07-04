@@ -1,31 +1,29 @@
 {
-  "name": "python_flask",
+  "name": "python_flask_rest",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "npm run start:chrome & npm run start:flask",
-    "start:flask": "env\\scripts\\python run.py",
-    "start:chrome": "opener chrome http://127.0.0.1:5000/",
+    "start:flask": "start nodemon --exec .env\\scripts\\python run.py",
+    "start:chrome": "start nodemon --ext js,html --exec opener chrome http://127.0.0.1:5000/",
     "test": "npm run test:nosetest && npm run test:coverage && npm run test:result",
     "test:nosetest": "nosetests --with-xunit --with-coverage --cover-erase --cover-package=fizzbuzz --verbose",
     "test:coverage": "coverage html --include 'fizzbuzz/*' --omit '*/tests/*'",
-    "test:result": "opener chrome htmlcov/index.html",
+    "test:result": "opener chrome ./htmlcov/index.html",
     "clean": "npm run clean:coverage & npm run clean:logs",
     "clean:coverage": "rimraf htmlcov nosetests.xml .coverage",
     "clean:logs": "rimraf logs && mkdirp logs",
-    "vscode": "code ."
+    "code": "code ."
   },
   "author": "",
   "license": "ISC",
   "directories": {},
   "description": "",
   "devDependencies": {
-    "chokidar-cli": "^1.2.0",
-    "fkill": "^5.0.0",
     "mkdirp": "^0.5.1",
+    "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
     "opener": "^1.4.3",
-    "rimraf": "^2.6.1",
-    "wait-on": "^2.0.2"
+    "rimraf": "^2.6.1"
   }
 }
